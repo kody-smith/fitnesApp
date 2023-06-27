@@ -87,5 +87,16 @@ def main():
         case 4:
             program = "PPL (6 days)"
 
+    ### Display User Data
+    print("Your Fitness Profile!")
+    print("----------------------")
+    print(f"Target Daily Calories: {calorie_target}")
+    print(f"Protein Reccomendation (grams): {protein}")
+    print(f"Carb Reccomendation (grams): {carbs}")
+    print(f"Fat Reccomendation (grams): {fats}")
+    print("----------------------")
+    print("Your Program")
+    print(program)
+
 if __name__ == '__main__':
     main()

@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'fitness/style.css' %}">
+
+<h1>Your Fitness Profile!</h1>
+<hr>
+<p>Target Daily Calories: {{ calorie_target }}</p>
+<p>Protein Recommendation (grams): {{ protein }}</p>
+<p>Carb Recommendation (grams): {{ carbs }}</p>
+<p>Fat Recommendation (grams): {{ fats }}</p>
+<hr>
+<h2>Your Program</h2>
+<p>{{ program }}</p>

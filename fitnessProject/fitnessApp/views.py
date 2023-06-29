@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .models import FitnessProfile
+
 def fitness_profile(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -85,17 +87,32 @@ def fitness_profile(request):
         elif time_commitment == 4:
             program = "PPL (6 days)"
 
-        # Create context dictionary
-        context = {
-            'calorie_target': calorie_target,
-            'protein': protein,
-            'carbs': carbs,
-            'fats': fats,
-            'program': program
+        # Create a FitnessProfile object and save it to the database
+        fitness_profile = {
+            'name':name,
+            'age':age,
+            'height':height,
+            'weight':weight,
+            'goal':goal,
+            'activity_level':activity_level,
+            'time_commitment':time_commitment,
+            'calorie_target':calorie_target,
+            'protein':protein,
+            'carbs':carbs,
+            'fats':fats,
+            'program':program
         }
         
 
-        return render(request, 'fitness/fitness_profile.html', context)
+        # Create context dictionary
+        context = {
+            'fitness_profile': fitness_profile
+        }
+        if 'fitness_profile' in request.session:
+            del request.session['fitness_profile']
+        
+
+        return render(request, 'fitness/input_form.html', context)
 
     return render(request, 'fitness/input_form.html')
 

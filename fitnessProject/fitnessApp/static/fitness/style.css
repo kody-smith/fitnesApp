@@ -2,29 +2,56 @@ body {
     width: 100%;
     height: 100%;
     margin: 0px;
-    background-color: white;
+    background-color: #C9C5BF;
+}
+
+.header {
+    width: 100%;
+    padding:5px 0;
+    padding-left: 25px;;
+    text-align: left;
+    background-image: linear-gradient(to right, #363635,rgb(102, 102, 102));
+    color: white;
+  }
+
+.container {
+    display: grid;
 }
 
 .profile {
-    position: absolute;
-    width: 15%;
-    height: 35%;
+    background: #fff;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 6;
+    margin: 20px;
+    margin-top: -10px;
+    width: 21.25%;
+    height: 85%;
     right: 42.5%;
     left: 42.5%;
     top: 32.5%;
     bottom: 32.5%;
     border: 1px solid black;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
 }
 
 .input_form {
-    position: absolute;
+    background: #fff;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
     line-height: 2.8;
-    width: 30%;
-    height: 40%;
+    width: 21%;
+    height: 80%;
     margin:20px;
     padding: 18px;
     border: 1px solid black;
-    white-space: nowrap;
+}
+
+.submit_button {
+    margin-top:20px;
+    margin-bottom:20px;
 }

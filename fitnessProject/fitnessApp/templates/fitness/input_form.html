@@ -1,53 +1,61 @@
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'fitness/style.css' %}"/>
-<div class="container">
-    <form class="input_form" method="post" action="{% url 'fitness:fitness_profile' %}">
-        {% csrf_token %}
-        <label for="name">Name:</label>
-        <input type="text" name="name"><br>
-        <label for="age">Age:</label>
-        <input type="number" name="age"><br>
-        <label for="height">Height in inches:</label>
-        <input type="number" name="height"><br>
-        <label for="weight">Weight in lbs:</label>
-        <input type="number" name="weight"><br>
-        <label for="goal">What is your fitness goal?</label>
-        <select name="goal">
-            <option value="1">Lose Fat</option>
-            <option value="2">Gain Muscle</option>
-            <option value="3">Gain Muscle and Lose Fat</option>
-        </select><br>
-        <label for="activity_level">What is your activity level?</label>
-        <select name="activity_level">
-            <option value="0">Sedentary (No Exercise)</option>
-            <option value="1">Occasional (Exercise once every 2 weeks for approx 30 min)</option>
-            <option value="2">Light (Exercise once a week for approx 30 min)</option>
-            <option value="3">Average (Exercise 2-3 times a week for approx 1-3 hours)</option>
-            <option value="4">Daily (Exercise daily for approx 4-7 hrs)</option>
-            <option value="5">Advanced (Intense daily exercise for approx 7-14 hrs)</option>
-        </select><br>
-        <label for="time_commitment">How much time can you commit to working out each week?</label>
-        <select name="time_commitment">
-            <option value="1">3 Days/week</option>
-            <option value="2">4 Days/week</option>
-            <option value="3">5 Days/week</option>
-            <option value="4">6 Days/week</option>
-        </select><br>
-        <input type="submit" value="Submit">
-    </form>
+<head>
+    <title>Fitness AI Assistant</title>
+</head>
+<body>
+    <section class="header">
+        <h1>Fitness AI Assistant</h1>
+    </section>
+    <div class="container">
+        <form class="input_form" method="post" action="{% url 'fitness:fitness_profile' %}">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" name="name"><br>
+            <label for="age">Age:</label>
+            <input type="number" name="age"><br>
+            <label for="height">Height in inches:</label>
+            <input type="number" name="height"><br>
+            <label for="weight">Weight in lbs:</label>
+            <input type="number" name="weight"><br>
+            <label for="goal">What is your fitness goal?</label>
+            <select name="goal">
+                <option value="1">Lose Fat</option>
+                <option value="2">Gain Muscle</option>
+                <option value="3">Gain Muscle and Lose Fat</option>
+            </select><br>
+            <label for="activity_level">What activity level can you commit to?</label>
+            <select name="activity_level">
+                <option value="0">Sedentary (No Exercise)</option>
+                <option value="1">Occasional (Exercise once every 2 weeks for approx 30 min)</option>
+                <option value="2">Light (Exercise once a week for approx 30 min)</option>
+                <option value="3">Average (Exercise 2-3 times a week for approx 1-3 hours)</option>
+                <option value="4">Daily (Exercise daily for approx 4-7 hrs)</option>
+                <option value="5">Advanced (Intense daily exercise for approx 7-14 hrs)</option>
+            </select><br>
+            <label for="time_commitment">How much time can you commit to working out each week?</label>
+            <select name="time_commitment">
+                <option value="1">3 Days/week</option>
+                <option value="2">4 Days/week</option>
+                <option value="3">5 Days/week</option>
+                <option value="4">6 Days/week</option>
+            </select><br>
+            <input class="submit_button" type="submit" value="Submit">
+        </form>
 
-    {% if fitness_profile %}
-        <div class="profile">
-            <h1>Your Fitness Profile!</h1>
-            <hr>
-            <p>Target Daily Calories: {{ fitness_profile.calorie_target }}</p>
-            <p>Protein Recommendation (grams): {{ fitness_profile.protein }}</p>
-            <p>Carb Recommendation (grams): {{ fitness_profile.carbs }}</p>
-            <p>Fat Recommendation (grams): {{ fitness_profile.fats }}</p>
-            <hr>
-            <h2>Your Program</h2>
-            <p>{{ fitness_profile.program }}</p>
-        </div>
-    {% endif %}
-</div>
+        {% if fitness_profile %}
+            <div class="profile">
+                <h1>Your Fitness Profile!</h1>
+                <hr>
+                <p>Target Daily Calories: {{ fitness_profile.calorie_target }}</p>
+                <p>Protein Recommendation (grams): {{ fitness_profile.protein }}</p>
+                <p>Carb Recommendation (grams): {{ fitness_profile.carbs }}</p>
+                <p>Fat Recommendation (grams): {{ fitness_profile.fats }}</p>
+                <hr>
+                <h2>Your Program</h2>
+                <p>{{ fitness_profile.program }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+

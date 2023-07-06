@@ -26,7 +26,7 @@ def fitness_profile(request):
 
         # Change percent_bmr_change based on user input
         if goal == 1:
-            percent_bmr_change = 0.08
+            percent_bmr_change = 0.9
         elif goal == 2:
             percent_bmr_change = 1.2
         elif goal == 3:
